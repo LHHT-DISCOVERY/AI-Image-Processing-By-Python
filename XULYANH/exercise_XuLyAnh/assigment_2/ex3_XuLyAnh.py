@@ -20,12 +20,12 @@ def histogram(img):
     plt.title("Normal histogram")
     plt.show()
 
-    count, _ = np.histogram(img, bins=10)
-    pdf = count / sum(count)
-    plt.plot(pdf, color="red", label="pdf")
-    plt.title("PDF")
-    plt.legend()
-    plt.show()
+    # count, _ = np.histogram(img, bins=10)
+    # pdf = count / sum(count)
+    # plt.plot(pdf, color="red", label="pdf")
+    # plt.title("PDF")
+    # plt.legend()
+    # plt.show()
 
     cdf = np.cumsum(p)
     plt.plot(cdf, color="red", label="cdf")

@@ -70,7 +70,7 @@ def Detec_Tracking(vd):
     pts_L4 = pts_L4.reshape((-1, 1, 2))
 
     # background subtraction
-    fgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)
+    fgbg = cv2.createBackgroundSubtractorMOG2(200, 16, True)
 
     # Structuring elements for morphographic filters
     kernelOp = np.ones((3, 3), np.uint8)
@@ -148,7 +148,7 @@ def Detec_Tracking(vd):
                         color_contour = i.getRGB()
                         cv2.circle(frame, (cx, cy), 5, color_contour, -2)
                         img = cv2.rectangle(frame, (x, y), (x + w, y + h), color_contour, 2)
-                        cv2.putText(img, " People moving 100%", (x + w + 20, y + 20), cv2.FONT_HERSHEY_COMPLEX, .5,
+                        cv2.putText(img, " Object moving 100%", (x + w + 20, y + 20), cv2.FONT_HERSHEY_COMPLEX, .5,
                                     (0, 255, 0),
                                     2, cv2.LINE_AA)
                         # LINE_AA là giao diện như : màu sắc, độ dày, loại đường
@@ -173,12 +173,12 @@ def Detec_Tracking(vd):
                             print(str(i.getX()), ',', str(i.getY()))
 
         # display info
-        str_up = ' SO NGUOI DI LEN  : ' + str(cnt_up)
+        str_up = ' DOI TUONG DI LEN  : ' + str(cnt_up)
         cv2.line(frame, (10, 10), (10, 30), (255, 0, 0), 2)
         cv2.line(frame, (10, 10), (5, 20), (255, 0, 0), 2)
         cv2.line(frame, (10, 10), (15, 20), (255, 0, 0), 2)
 
-        str_down = ' SO NGUOI DI XUONG: ' + str(cnt_down)
+        str_down = ' DOI TUONG DI XUONG: ' + str(cnt_down)
         cv2.line(frame, (10, 35), (10, 55), (0, 0, 255), 2)
         cv2.line(frame, (10, 55), (5, 45), (0, 0, 255), 2)
         cv2.line(frame, (10, 55), (15, 45), (0, 0, 255), 2)
@@ -194,7 +194,7 @@ def Detec_Tracking(vd):
                     (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
 
         cv2.imshow('Original Video', frame)  # display original video
-        # cv2.imshow('Masked Video', mask2)  # display B & W video
+        cv2.imshow('Masked Video', mask2)  # display B & W video
 
         # press ESC to exit
         k = cv2.waitKey(30) & 0xff
