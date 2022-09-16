@@ -25,9 +25,9 @@ def Detec_Tracking(vd):
         cap = cv2.VideoCapture(args["video"])
 
     # Print the capture properties to console, height, width and FPS
-    print('Height: ', cap.get(4))
-    print('Width: ', cap.get(3))
-    print('Frame per Seconds: ', cap.get(5))
+    # print('Height: ', cap.get(4))
+    # print('Width: ', cap.get(3))
+    # print('Frame per Seconds: ', cap.get(5))
 
     cnt_up = 0
     cnt_down = 0
@@ -101,8 +101,8 @@ def Detec_Tracking(vd):
             #  nếu ko đọc được lỗi thì in ra lỗi là EOF
             #  EOF (END of File) : nghĩa là ko  đọc được dữ liệu từ file
             print("tổng người trong video là : " + str(cnt_down + cnt_up))
-            print("tổng người đi lên là : " + str(cnt_up))
-            print("tổng người đi xuống là : " + str(cnt_down))
+            # print("tổng người đi lên là : " + str(cnt_up))
+            # print("tổng người đi xuống là : " + str(cnt_down))
             print('END of File')
             break
 
@@ -124,10 +124,10 @@ def Detec_Tracking(vd):
                             i.updateCoords(cx, cy)  # cập nhật tọa độ trong đối tượng và đặt lại tuổi
                             if i.going_UP(line_down, line_up):
                                 cnt_up += 1
-                                print("ID :", str(cnt_up), ' đã đi lên  lúc : ', time.strftime("%c"))
+                                # print("ID :", str(cnt_up), ' đã đi lên  lúc : ', time.strftime("%c"))
                             elif i.going_DOWN(line_down, line_up):
                                 cnt_down += 1
-                                print("ID :", str(cnt_down), 'đã đi xuống lúc : ', time.strftime("%c"))
+                                # print("ID :", str(cnt_down), 'đã đi xuống lúc : ', time.strftime("%c"))
                             break
                         if i.getState() == '1':
                             if i.getDir() == 'down' and i.getY() > down_limit:
@@ -153,45 +153,45 @@ def Detec_Tracking(vd):
                                     2, cv2.LINE_AA)
                         # LINE_AA là giao diện như : màu sắc, độ dày, loại đường
 
-                        if i.going_UP(line_down, line_up):
-                            cv2.putText(img, "ID : " + str(cnt_up), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX, .5,
-                                        (255, 0, 0),
-                                        2, cv2.LINE_AA)
-                        elif i.going_DOWN(line_down, line_up):
-                            cv2.putText(img, "ID : " + str(cnt_down), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX,
-                                        .5,
-                                        (0, 0, 255),
-                                        2, cv2.LINE_AA)
+                        # if i.going_UP(line_down, line_up):
+                        #     cv2.putText(img, "ID : " + str(cnt_up), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX, .5,
+                        #                 (255, 0, 0),
+                        #                 2, cv2.LINE_AA)
+                        # elif i.going_DOWN(line_down, line_up):
+                        #     cv2.putText(img, "ID : " + str(cnt_down), (x + w + 20, y + 45), cv2.FONT_HERSHEY_COMPLEX,
+                        #                 .5,
+                        #                 (0, 0, 255),
+                        #                 2, cv2.LINE_AA)
 
                         # tracking code
-                        for i in persons:
-                            if len(i.getTracks()) >= 2:
-                                pts = np.array(i.getTracks(), np.int32)
-                                pts = pts.reshape((-1, 1, 2))
-                                frame = cv2.polylines(frame, [pts], False, color_contour, 2)
-                        if i.getId() == 9:
-                            print(str(i.getX()), ',', str(i.getY()))
+                        # for i in persons:
+                        #     if len(i.getTracks()) >= 2:
+                        #         pts = np.array(i.getTracks(), np.int32)
+                        #         pts = pts.reshape((-1, 1, 2))
+                        #         frame = cv2.polylines(frame, [pts], False, color_contour, 2)
+                        # if i.getId() == 9:
+                        #     print(str(i.getX()), ',', str(i.getY()))
 
         # display info
-        str_up = ' DOI TUONG DI LEN  : ' + str(cnt_up)
-        cv2.line(frame, (10, 10), (10, 30), (255, 0, 0), 2)
-        cv2.line(frame, (10, 10), (5, 20), (255, 0, 0), 2)
-        cv2.line(frame, (10, 10), (15, 20), (255, 0, 0), 2)
-
-        str_down = ' DOI TUONG DI XUONG: ' + str(cnt_down)
-        cv2.line(frame, (10, 35), (10, 55), (0, 0, 255), 2)
-        cv2.line(frame, (10, 55), (5, 45), (0, 0, 255), 2)
-        cv2.line(frame, (10, 55), (15, 45), (0, 0, 255), 2)
+        # str_up = ' DOI TUONG DI LEN  : ' + str(cnt_up)
+        # cv2.line(frame, (10, 10), (10, 30), (255, 0, 0), 2)
+        # cv2.line(frame, (10, 10), (5, 20), (255, 0, 0), 2)
+        # cv2.line(frame, (10, 10), (15, 20), (255, 0, 0), 2)
+        #
+        # str_down = ' DOI TUONG DI XUONG: ' + str(cnt_down)
+        # cv2.line(frame, (10, 35), (10, 55), (0, 0, 255), 2)
+        # cv2.line(frame, (10, 55), (5, 45), (0, 0, 255), 2)
+        # cv2.line(frame, (10, 55), (15, 45), (0, 0, 255), 2)
 
         #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuống
 
         # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
-        cv2.putText(frame, str_up, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-        cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-        cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
-                    (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
+        # cv2.putText(frame, str_up, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+        # cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+        # cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
+        #             (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
 
         cv2.imshow('Original Video', frame)  # display original video
         cv2.imshow('Masked Video', mask2)  # display B & W video
