@@ -10,9 +10,9 @@ def phat_hien_trom():
     mixer.music.load('Tieng-coi-xe-canh-sat-www_tiengdong_com.mp3')
     backSub = cv2.createBackgroundSubtractorMOG2()
 
-    top_left, bottom_right = (600, 200), (1000, 700)
+    top_left, bottom_right = (200, 100), (700, 680)
 
-    cap = cv2.VideoCapture('trom.mp4')
+    cap = cv2.VideoCapture('9014172086922407300.mp4')
     kernelOp = np.ones((6, 6), np.uint8)
     kernelOp2 = np.ones((5, 5), np.uint8)
     kernel_cl = np.ones((22, 22), np.uint8)
@@ -31,7 +31,7 @@ def phat_hien_trom():
 
         # khu vực cấm
         # cv2.rectangle(frame, top_left, bottom_right, (255, 255, 0), 2)
-
+        object = []
         for i in range(len(contours)):
             # x là điểm cuối cùng bên trái
             # y là điểm cuối cùng bên phải
@@ -48,13 +48,15 @@ def phat_hien_trom():
             if trong_vong_canh_bao:
                 img = cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 5)
                 mixer.music.play()
-                cv2.putText(frame, "WARNING !!!", (200, 100), cv2.FONT_HERSHEY_SIMPLEX, 4, (0, 0, 255), 5)
+                object.append([(x, y), (x + w, y + h)])
+                cv2.putText(frame, "WARNING !!!", (200, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
                 cv2.putText(img, "TROM DI CHUYEN", (x, y - 20), cv2.FONT_HERSHEY_COMPLEX, .5,
                             (0, 255, 0),
                             2, cv2.LINE_AA)
                 with open("Data_trom.txt", 'a') as f:
                     b = time.strftime("%c")
                     f.write("DOI_TUONG_VAO_NHA_LUC : " + b + "\n")
+                    print(object)
 
         cv2.imshow('Camera', frame)
         cv2.imshow('Masked Video', fgMask)

@@ -121,7 +121,7 @@ def Detect_Tracking(vd):
                         color_contour = i.getRGB()
                         cv2.circle(frame, (cx, cy), 5, color_contour, -2)
                         img = cv2.rectangle(frame, (x, y), (x + w, y + h), color_contour, 2)
-                        cv2.putText(img, "Moving Object", (x, y - 20), cv2.FONT_HERSHEY_COMPLEX, .5,
+                        cv2.putText(img, "Moving Object", (x, y - 40), cv2.FONT_HERSHEY_COMPLEX, .5,
                                     (0, 255, 0),
                                     2, cv2.LINE_AA)
                         # LINE_AA là giao diện như : màu sắc, độ dày, loại đường
