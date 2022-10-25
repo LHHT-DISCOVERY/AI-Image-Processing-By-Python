@@ -144,8 +144,8 @@ def Detect_Tracking(vd):
 
         #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuống
 
-        frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
-        frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
+        # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
+        # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
         # cv2.putText(frame, str_up, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
         cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
