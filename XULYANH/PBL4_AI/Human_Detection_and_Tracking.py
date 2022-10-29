@@ -53,9 +53,19 @@ def Detect_Tracking(vd):
     object = []
     max_p_age = 5
     pid = 1
+
+ # lấy fps
+    prev_frame_time = 0
+    new_frame_time = 0
+
     while cap.isOpened():
         # đọc hình ảnh từ video
         ret, frame = cap.read()
+        new_frame_time = time.time()
+        fps = 1 / (new_frame_time - prev_frame_time)
+        prev_frame_time = new_frame_time
+        FPS =  fps
+        # FPS = cv2.VideoCapture.get(5)
         top_left, bottom_right = (0, 100), (460, 0)
         for i in object:
             i.age_one()
@@ -68,7 +78,7 @@ def Detect_Tracking(vd):
             mask2 = cv2.morphologyEx(mask2, cv2.MORPH_CLOSE, kernel_cl)
             mask2 = cv2.erode(mask2, kernelOp2)
         except:
-            print("tổng người trong video là : " + str(cnt_down + cnt_up))
+            print("tổng xe trong video là : " + str(cnt_down + cnt_up))
             print('END of File')
             break
 
@@ -141,13 +151,14 @@ def Detect_Tracking(vd):
         cv2.line(frame, (10, 35), (10, 55), (0, 0, 255), 2)
         cv2.line(frame, (10, 55), (5, 45), (0, 0, 255), 2)
         cv2.line(frame, (10, 55), (15, 45), (0, 0, 255), 2)
+        FPS = "FPS : " + str(FPS)
 
         #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuống
 
         # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
-        # cv2.putText(frame, str_up, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(frame, FPS, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
         cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
         cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
                     (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
