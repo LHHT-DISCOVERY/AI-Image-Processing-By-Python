@@ -23,7 +23,7 @@ cv2.imshow("original image", img1)
 cv2.imshow("streching", streching_image1)
 cv2.imshow("orginalim2", img2)
 cv2.imshow("streching_img2", streching_image2)
-plt.hist(streching_image1)
+# plt.hist(streching_image1)
 plt.show()
 cv2.waitKey(0)
 

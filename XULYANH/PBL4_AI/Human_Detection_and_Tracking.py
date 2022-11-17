@@ -54,7 +54,7 @@ def Detect_Tracking(vd):
     max_p_age = 5
     pid = 1
 
- # lấy fps
+    # lấy fps
     prev_frame_time = 0
     new_frame_time = 0
 
@@ -64,7 +64,7 @@ def Detect_Tracking(vd):
         new_frame_time = time.time()
         fps = 1 / (new_frame_time - prev_frame_time)
         prev_frame_time = new_frame_time
-        FPS =  fps
+        FPS = fps
         # FPS = cv2.VideoCapture.get(5)
         top_left, bottom_right = (0, 100), (460, 0)
         for i in object:
@@ -131,7 +131,7 @@ def Detect_Tracking(vd):
                         color_contour = i.getRGB()
                         cv2.circle(frame, (cx, cy), 5, color_contour, -2)
                         img = cv2.rectangle(frame, (x, y), (x + w, y + h), color_contour, 2)
-                        cv2.putText(img, "Moving Object", (x, y - 40), cv2.FONT_HERSHEY_COMPLEX, .5,
+                        cv2.putText(img, "Moving Object", (x, y - 40), cv2.FONT_HERSHEY_COMPLEX, 0.5,
                                     (0, 255, 0),
                                     2, cv2.LINE_AA)
                         # LINE_AA là giao diện như : màu sắc, độ dày, loại đường
@@ -153,15 +153,18 @@ def Detect_Tracking(vd):
         cv2.line(frame, (10, 55), (15, 45), (0, 0, 255), 2)
         FPS = "FPS : " + str(FPS)
 
-        #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuống
+        #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuố   ng
+        # frame = cv2.polylines(frame, [pts_L1], False, up_limit, thickness=3)
+        # frame = cv2.polylines(frame, [pts_L2], False, down_limit, thickness=3)
 
         # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
         cv2.putText(frame, FPS, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
         cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-        cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
-                    (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
+
+        # cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
+        #             (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
 
         cv2.imshow('Original Video', frame)  # display original video
         cv2.imshow('Masked Video', mask2)  # display B & W video

@@ -1,0 +1,569 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "VideoStream",
+        "importPath": "imutils.video",
+        "description": "imutils.video",
+        "isExtraImport": true,
+        "detail": "imutils.video",
+        "documentation": {}
+    },
+    {
+        "label": "FPS",
+        "importPath": "imutils.video",
+        "description": "imutils.video",
+        "isExtraImport": true,
+        "detail": "imutils.video",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "imutils",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "imutils",
+        "description": "imutils",
+        "detail": "imutils",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "Object",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "Object",
+        "description": "Object",
+        "detail": "Object",
+        "documentation": {}
+    },
+    {
+        "label": "pyplot",
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "isExtraImport": true,
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
+        "label": "Detect_Tracking",
+        "importPath": "Human_Detection_and_Tracking",
+        "description": "Human_Detection_and_Tracking",
+        "isExtraImport": true,
+        "detail": "Human_Detection_and_Tracking",
+        "documentation": {}
+    },
+    {
+        "label": "phat_hien_trom",
+        "importPath": "night_deetection_tracking",
+        "description": "night_deetection_tracking",
+        "isExtraImport": true,
+        "detail": "night_deetection_tracking",
+        "documentation": {}
+    },
+    {
+        "label": "mixer",
+        "importPath": "pygame",
+        "description": "pygame",
+        "isExtraImport": true,
+        "detail": "pygame",
+        "documentation": {}
+    },
+    {
+        "label": "randint",
+        "importPath": "random",
+        "description": "random",
+        "isExtraImport": true,
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\Lib\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"Scripts\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\Lib\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir] + os.environ.get(\"PATH\", \"\").split(os.pathsep))\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\Lib\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"..\\Lib\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"..\\Lib\\site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": "venv.Scripts.activate_this",
+        "description": "venv.Scripts.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": "venv.Scripts.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "ap",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "ap = argparse.ArgumentParser()\nap.add_argument(\"-v\", \"--video\", help=\"path to the video file\")\nap.add_argument(\"-a\", \"--min-area\", type=int, default=500, help=\"minimum area size\")\nap.add_argument(\"-t\", \"--tracker\", type=str, default=\"csrt\", help=\"OpenCV object tracker type\")\nargs = vars(ap.parse_args())\n# extract the OpenCV version info\n(major, minor) = cv2.__version__.split(\".\")[:2]\n# if we are using OpenCV 3.2 or an earlier version, we can use a special factory\n# function to create the entity that tracks objects\nif int(major) == 3 and int(minor) < 3:",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "args = vars(ap.parse_args())\n# extract the OpenCV version info\n(major, minor) = cv2.__version__.split(\".\")[:2]\n# if we are using OpenCV 3.2 or an earlier version, we can use a special factory\n# function to create the entity that tracks objects\nif int(major) == 3 and int(minor) < 3:\n    tracker = cv2.Tracker_create(args[\"tracker\"].upper())\n    # tracker = cv2.TrackerGOTURN_create()\n# otherwise, for OpenCV 3.3 or newer,\n# we need to explicity call the respective constructor that contains the tracker object:",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "firstFrame",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "firstFrame = None\ninitBB2 = None\nfps = None\ndiffer = None\nnow = ''\nframecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "initBB2",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "initBB2 = None\nfps = None\ndiffer = None\nnow = ''\nframecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "fps",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "fps = None\ndiffer = None\nnow = ''\nframecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video\n    if frame is None:",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "differ",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "differ = None\nnow = ''\nframecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video\n    if frame is None:\n        break",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "now = ''\nframecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video\n    if frame is None:\n        break\n    # resize the frame to 500",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "framecounter",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "framecounter = 0\ntrackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video\n    if frame is None:\n        break\n    # resize the frame to 500\n    frame = imutils.resize(frame, width=500)",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "trackeron",
+        "kind": 5,
+        "importPath": "codeTest",
+        "description": "codeTest",
+        "peekOfCode": "trackeron = 0\nwhile True:\n    frame = vs.read()\n    frame = frame if args.get(\"video\", None) is None else frame[1]\n    # if the frame can not be grabbed, then we have reached the end of the video\n    if frame is None:\n        break\n    # resize the frame to 500\n    frame = imutils.resize(frame, width=500)\n    framecounter = framecounter + 1",
+        "detail": "codeTest",
+        "documentation": {}
+    },
+    {
+        "label": "Detect_Tracking",
+        "kind": 2,
+        "importPath": "Human_Detection_and_Tracking",
+        "description": "Human_Detection_and_Tracking",
+        "peekOfCode": "def Detect_Tracking(vd):\n    cap = cv2.VideoCapture(vd)\n    # Print the capture properties to console, height, width and FPS\n    print('Height: ', cap.get(4))\n    print('Width: ', cap.get(3))\n    print('Frame per Seconds: ', cap.get(5))\n    cnt_up = 0\n    cnt_down = 0\n    w = cap.get(3)\n    h = cap.get(4)",
+        "detail": "Human_Detection_and_Tracking",
+        "documentation": {}
+    },
+    {
+        "label": "initialize",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def initialize():\n    global mean, weight, deviation\n    mean = np.zeros(shape=(K, row, column, 3))\n    weight = np.ones(shape=(K, row, column)) / K\n    deviation = np.ones(shape=(K, row, column))\ndef check():\n    global mask_divide, idx\n    T = 0.7\n    ratio = -1*(weight / deviation)\n    idx = ratio.argsort(axis=0)",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "check",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def check():\n    global mask_divide, idx\n    T = 0.7\n    ratio = -1*(weight / deviation)\n    idx = ratio.argsort(axis=0)\n    ratio.sort(axis=0)\n    ratio *= -1\n    cum = np.cumsum(ratio, axis=0)\n    mask_divide = (cum < T)\n    mask_divide = np.choose(idx, mask_divide)",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "mahalanobis_probability",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def mahalanobis_probability(video):\n    global mask_distance, prob\n    temp = np.subtract(video, mean)\n    temp = np.sum(temp**2, axis=3) / (deviation**2)\n    prob = np.exp(temp/(-2)) / (np.sqrt((2*np.pi)**3)*deviation)\n    temp = np.sqrt(temp)\n    mask_distance = (temp < 2.5*deviation)\ndef update(video):\n    global weight, mask_distance, mean, deviation, prob, mask_some\n    alpha = 0.2",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "update",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def update(video):\n    global weight, mask_distance, mean, deviation, prob, mask_some\n    alpha = 0.2\n    rho = alpha * prob\n    mask_some = np.bitwise_or.reduce(mask_distance, axis=0)\n    mask_update = np.where(mask_some == True, mask_distance, -1)\n    weight = np.where(mask_update == 1, (1 - alpha) * weight + alpha, weight)\n    weight = np.where(mask_update == 0, (1 - alpha) * weight, weight)\n    weight = np.where(mask_update == -1, 0.0001, weight)\n    data = np.stack([video]*K, axis=0)",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "result",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def result(video):\n    background = np.zeros(shape=(row, column, 3), dtype=np.uint8)\n    foreground = 255 + np.zeros(shape=(row, column, 3), dtype=np.uint8)\n    m = np.stack([mask_some]*3, axis=2)\n    res = np.where(m == False, foreground, background)\n    n = np.bitwise_and(mask_divide, mask_distance)\n    n = np.bitwise_or.reduce(n, axis=0)\n    n = np.stack([n]*3, axis=2)\n    res = np.where(n == True, background, foreground)\n    # cv2.imshow('frame', video)",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "frame_processing",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def frame_processing(video):\n    check()\n    mahalanobis_probability(video)\n    update(video)\n    result(video)\ndef main():\n    global row, column, K\n    cap = cv2.VideoCapture('test.avi')\n    # cap = cv2.VideoCapture(0)\n    ret, frame = cap.read()",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "def main():\n    global row, column, K\n    cap = cv2.VideoCapture('test.avi')\n    # cap = cv2.VideoCapture(0)\n    ret, frame = cap.read()\n    K = 3\n    row, column, _ = frame.shape\n    initialize()\n    fgbg = cv2.createBackgroundSubtractorMOG2(False)\n    while(1):",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "row",
+        "kind": 5,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "row = 0\ncolumn = 0\nK = 0\ndef initialize():\n    global mean, weight, deviation\n    mean = np.zeros(shape=(K, row, column, 3))\n    weight = np.ones(shape=(K, row, column)) / K\n    deviation = np.ones(shape=(K, row, column))\ndef check():\n    global mask_divide, idx",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "column",
+        "kind": 5,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "column = 0\nK = 0\ndef initialize():\n    global mean, weight, deviation\n    mean = np.zeros(shape=(K, row, column, 3))\n    weight = np.ones(shape=(K, row, column)) / K\n    deviation = np.ones(shape=(K, row, column))\ndef check():\n    global mask_divide, idx\n    T = 0.7",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "K",
+        "kind": 5,
+        "importPath": "implement",
+        "description": "implement",
+        "peekOfCode": "K = 0\ndef initialize():\n    global mean, weight, deviation\n    mean = np.zeros(shape=(K, row, column, 3))\n    weight = np.ones(shape=(K, row, column)) / K\n    deviation = np.ones(shape=(K, row, column))\ndef check():\n    global mask_divide, idx\n    T = 0.7\n    ratio = -1*(weight / deviation)",
+        "detail": "implement",
+        "documentation": {}
+    },
+    {
+        "label": "phat_hien_trom",
+        "kind": 2,
+        "importPath": "night_deetection_tracking",
+        "description": "night_deetection_tracking",
+        "peekOfCode": "def phat_hien_trom():\n    mixer.init()\n    mixer.music.load('Tieng-coi-xe-canh-sat-www_tiengdong_com.mp3')\n    backSub = cv2.createBackgroundSubtractorMOG2()\n    top_left, bottom_right = (200, 100), (700, 680)\n    cap = cv2.VideoCapture('9014172086922407300.mp4')\n    kernelOp = np.ones((6, 6), np.uint8)\n    kernelOp2 = np.ones((5, 5), np.uint8)\n    kernel_cl = np.ones((22, 22), np.uint8)\n    while True:",
+        "detail": "night_deetection_tracking",
+        "documentation": {}
+    },
+    {
+        "label": "Object",
+        "kind": 6,
+        "importPath": "Object",
+        "description": "Object",
+        "peekOfCode": "class Object:\n    tracks = []\n    def __init__(self, i, xi, yi, max_age):\n        self.i = i\n        self.x = xi\n        self.y = yi\n        self.tracks = []\n        self.R = randint(0, 255)\n        self.G = randint(0, 255)\n        self.B = randint(0, 255)",
+        "detail": "Object",
+        "documentation": {}
+    },
+    {
+        "label": "cnt_up",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "cnt_up = 0\ncnt_down = 0\nw = 1280\nh = 720\nframeArea = h * w\nareaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "cnt_down",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "cnt_down = 0\nw = 1280\nh = 720\nframeArea = h * w\nareaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "w",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "w = 1280\nh = 720\nframeArea = h * w\nareaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "h",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "h = 720\nframeArea = h * w\nareaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "frameArea",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "frameArea = h * w\nareaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)\n# Variables",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "areaTH",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "areaTH = frameArea / 250\nprint('Area Threshold: ', areaTH)\n# background subtraction\nfgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)\n# Variables\nfont = cv2.FONT_HERSHEY_SIMPLEX",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "fgbg",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "fgbg = cv2.createBackgroundSubtractorMOG2(detectShadows=True)\n# Structuring elements for morphographic filters\nkernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)\n# Variables\nfont = cv2.FONT_HERSHEY_SIMPLEX\npersons = []\nmax_p_age = 5\npid = 1",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "kernelOp",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "kernelOp = np.ones((3, 3), np.uint8)\nkernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)\n# Variables\nfont = cv2.FONT_HERSHEY_SIMPLEX\npersons = []\nmax_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "kernelOp2",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "kernelOp2 = np.ones((5, 5), np.uint8)\nkernelCl = np.ones((11, 11), np.uint8)\n# Variables\nfont = cv2.FONT_HERSHEY_SIMPLEX\npersons = []\nmax_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "kernelCl",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "kernelCl = np.ones((11, 11), np.uint8)\n# Variables\nfont = cv2.FONT_HERSHEY_SIMPLEX\npersons = []\nmax_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "font",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "font = cv2.FONT_HERSHEY_SIMPLEX\npersons = []\nmax_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:\n        i.age_one()\n    # Apply background subtraction",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "persons",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "persons = []\nmax_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:\n        i.age_one()\n    # Apply background subtraction\n    fgmask2 = fgbg.apply(frame)",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "max_p_age",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "max_p_age = 5\npid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:\n        i.age_one()\n    # Apply background subtraction\n    fgmask2 = fgbg.apply(frame)\n    # eliminate shadows",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "pid",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "pid = 1\ncap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:\n        i.age_one()\n    # Apply background subtraction\n    fgmask2 = fgbg.apply(frame)\n    # eliminate shadows\n    try:",
+        "detail": "testCamera",
+        "documentation": {}
+    },
+    {
+        "label": "cap",
+        "kind": 5,
+        "importPath": "testCamera",
+        "description": "testCamera",
+        "peekOfCode": "cap = cv2.VideoCapture(0)\nwhile True:\n    ret, frame = cap.read()\n    for i in persons:\n        i.age_one()\n    # Apply background subtraction\n    fgmask2 = fgbg.apply(frame)\n    # eliminate shadows\n    try:\n        ret, imBin2 = cv2.threshold(fgmask2, 200, 255, cv2.THRESH_BINARY)",
+        "detail": "testCamera",
+        "documentation": {}
+    }
+]
