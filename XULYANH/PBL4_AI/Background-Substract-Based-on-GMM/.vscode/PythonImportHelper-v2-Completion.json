@@ -1,0 +1,155 @@
+[
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "GmmModel",
+        "kind": 6,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "class GmmModel:\n    def __init__(self, sample_image):\n        #  số pixel (kích thước ảnh)\n        self.img_size = sample_image.shape[0] * sample_image.shape[1]\n        # Số lượng mô hình của mỗi điểm ảnh (khởi tạo thành 0)\n        self.model_count = np.zeros([1, self.img_size], int)\n        # Số K của mô hình GMM Gaussuss (ở đây cố định\n        # , một số phương pháp có thể thích ứng với mỗi điểm ảnh để chọn một số K của mô hình)\n        self.k = 3  # Các tham số có thể điều chỉnh\n        # tỷ lệ học tập  Alpha",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "load_data_set",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def load_data_set(path):\n    image_set = []\n    file_names = os.listdir(path)\n    for filename in file_names:\n        file_path = os.path.join(path, filename)\n        # Đọc dưới dạng biểu đồ thang độ xám\n        img = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)\n        image_set.append(img)\n    return image_set\n# Khởi tạo mô hình gmm",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "gmm_model_create",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def gmm_model_create():\n    # Đọc khung hình ảnh đầu tiên\n    first_frame = cv2.imread('WavingTrees/background_train/b00000.bmp', cv2.IMREAD_GRAYSCALE)\n    return GmmModel(first_frame)\n# Đào tạo các thông số mô hình\ndef gmm_model_train(gmm_model, single_frame):\n    # start_time = time.time()\n    img_rows = single_frame.shape[0]\n    img_cols = single_frame.shape[1]\n    for m in range(img_rows):",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "gmm_model_train",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def gmm_model_train(gmm_model, single_frame):\n    # start_time = time.time()\n    img_rows = single_frame.shape[0]\n    img_cols = single_frame.shape[1]\n    for m in range(img_rows):\n        for n in range(img_cols):\n            # Được sử dụng để xác định xem có một mô hình phân phối phù hợp với điểm ảnh (m, n).\n            matched = False\n            for k in range(gmm_model.model_count[0, m * img_cols + n]):\n                # Tính toán sự khác biệt giữa điểm ảnh và giá trị trung bình của phân phối Gaussian",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "gmm_model_sort",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def gmm_model_sort(gmm_model, m, n, img_cols):\n    # Xây dựng dựa trên sắp xếp\n    order_weight = gmm_model.w[:, m * img_cols + n] / gmm_model.sigma[:, m * img_cols + n]\n    # Đóng gói order_weight và trọng lượng\n    zip_ow_weight = zip(order_weight, gmm_model.w[:, m * img_cols + n])\n    # Order_weight đóng gói và trung bình\n    zip_ow_mean = zip(order_weight, gmm_model.u[:, m * img_cols + n])\n    # Order_weight đóng gói và độ lệch chuẩn\n    zip_ow_standard_deviation = zip(order_weight, gmm_model.sigma[:, m * img_cols + n])\n    zip_ow_weight = sorted(zip_ow_weight, reverse=True)",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "optimize_frame",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def optimize_frame(single_frame):\n    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))\n    frame_parsed = cv2.morphologyEx(single_frame, cv2.MORPH_OPEN, kernel, iterations=1)\n    frame_parsed = cv2.morphologyEx(frame_parsed, cv2.MORPH_CLOSE, kernel, iterations=3)\n    return frame_parsed\n# Tùy thuộc vào mô hình GMM được đào tạo,\n#  thao tác trừ nền của hình ảnh đầu vào được thực hiện và hình ảnh được xử lý được trả về\ndef background_subtract(gmm_model, single_frame):\n    # ước tính mô hình nền sum(weight_i)>T\n    img_rows = single_frame.shape[0]",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "background_subtract",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def background_subtract(gmm_model, single_frame):\n    # ước tính mô hình nền sum(weight_i)>T\n    img_rows = single_frame.shape[0]\n    img_cols = single_frame.shape[1]\n    for pixel_index in range(img_rows * img_cols):\n        weight_sum = 0\n        for k in range(gmm_model.model_count[0, pixel_index]):\n            weight_sum = weight_sum + gmm_model.w[k, pixel_index]\n            # Nếu mô hình K đầu tiên đã đáp ứng ngưỡng trọng lượng, chỉ có mô hình K trước đó được chọn\n            if weight_sum > gmm_model.t:",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "gmm_model_save",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def gmm_model_save(gmm_model, path):\n    with open(path, 'wb') as f:\n        pickle.dump(gmm_model, f)\n# Tải mô hình GMM \ndef gmm_model_load(path):\n    with open(path, 'rb') as f:\n        gmm_model = pickle.load(f)\n    return gmm_model\nif __name__ == '__main__':\n    # Khởi tạo mô hình GMM",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "gmm_model_load",
+        "kind": 2,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "def gmm_model_load(path):\n    with open(path, 'rb') as f:\n        gmm_model = pickle.load(f)\n    return gmm_model\nif __name__ == '__main__':\n    # Khởi tạo mô hình GMM\n    model = gmm_model_create()\n    gmm_model_path = './models_learned/gmm_model_maxK={0}_alpha={1}_T={2}_sigma={3}.pkl'.format(model.k, model.alpha,\n                                                                                                model.t, SIGMA)\n    # Tải trực tiếp nếu mô hình đã tồn tại",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "SIGMA",
+        "kind": 5,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "SIGMA = 30  \nWEIGHT = 0.1  \n# Định nghĩa mô hình GMM hình ảnh\nclass GmmModel:\n    def __init__(self, sample_image):\n        #  số pixel (kích thước ảnh)\n        self.img_size = sample_image.shape[0] * sample_image.shape[1]\n        # Số lượng mô hình của mỗi điểm ảnh (khởi tạo thành 0)\n        self.model_count = np.zeros([1, self.img_size], int)\n        # Số K của mô hình GMM Gaussuss (ở đây cố định",
+        "detail": "singleChannel",
+        "documentation": {}
+    },
+    {
+        "label": "WEIGHT",
+        "kind": 5,
+        "importPath": "singleChannel",
+        "description": "singleChannel",
+        "peekOfCode": "WEIGHT = 0.1  \n# Định nghĩa mô hình GMM hình ảnh\nclass GmmModel:\n    def __init__(self, sample_image):\n        #  số pixel (kích thước ảnh)\n        self.img_size = sample_image.shape[0] * sample_image.shape[1]\n        # Số lượng mô hình của mỗi điểm ảnh (khởi tạo thành 0)\n        self.model_count = np.zeros([1, self.img_size], int)\n        # Số K của mô hình GMM Gaussuss (ở đây cố định\n        # , một số phương pháp có thể thích ứng với mỗi điểm ảnh để chọn một số K của mô hình)",
+        "detail": "singleChannel",
+        "documentation": {}
+    }
+]

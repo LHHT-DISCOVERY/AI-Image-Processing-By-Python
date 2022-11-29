@@ -11,7 +11,7 @@ for i = 1:sizea(2)
     sumx(i) = sum(i*sum(img2(:,i)));
 end
 sumX = sum(sumx)/S;
-    for i = 1:sizea(1)
+    for i = 1:sizea(1)  
         for j = 1:sizea(2)
             m = ((j-sumX)^p * (i-sumY)^q * img2(i,j)) + m;
         end

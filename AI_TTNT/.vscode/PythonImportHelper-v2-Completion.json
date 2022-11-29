@@ -1,0 +1,38 @@
+[
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "BT_AI_24_10_2022",
+        "description": "BT_AI_24_10_2022",
+        "peekOfCode": "a = [106, 97, 108, 96, 112, 111, 97, 99, 87, 91]\nb = [115, 104, 98, 101, 98, 106, 95, 98, 87, 86]\nkq = 0\nkq2 = 0\nfor i in range(0, len(a)):\n    kq += (a[i] - 100.4 * (b[i] - 98.8))\n    kq2 = ((a[i] - 100.4) ** 2) + kq2\n    result = kq / kq2 ;\n    print(result)",
+        "detail": "BT_AI_24_10_2022",
+        "documentation": {}
+    },
+    {
+        "label": "b",
+        "kind": 5,
+        "importPath": "BT_AI_24_10_2022",
+        "description": "BT_AI_24_10_2022",
+        "peekOfCode": "b = [115, 104, 98, 101, 98, 106, 95, 98, 87, 86]\nkq = 0\nkq2 = 0\nfor i in range(0, len(a)):\n    kq += (a[i] - 100.4 * (b[i] - 98.8))\n    kq2 = ((a[i] - 100.4) ** 2) + kq2\n    result = kq / kq2 ;\n    print(result)",
+        "detail": "BT_AI_24_10_2022",
+        "documentation": {}
+    },
+    {
+        "label": "kq",
+        "kind": 5,
+        "importPath": "BT_AI_24_10_2022",
+        "description": "BT_AI_24_10_2022",
+        "peekOfCode": "kq = 0\nkq2 = 0\nfor i in range(0, len(a)):\n    kq += (a[i] - 100.4 * (b[i] - 98.8))\n    kq2 = ((a[i] - 100.4) ** 2) + kq2\n    result = kq / kq2 ;\n    print(result)",
+        "detail": "BT_AI_24_10_2022",
+        "documentation": {}
+    },
+    {
+        "label": "kq2",
+        "kind": 5,
+        "importPath": "BT_AI_24_10_2022",
+        "description": "BT_AI_24_10_2022",
+        "peekOfCode": "kq2 = 0\nfor i in range(0, len(a)):\n    kq += (a[i] - 100.4 * (b[i] - 98.8))\n    kq2 = ((a[i] - 100.4) ** 2) + kq2\n    result = kq / kq2 ;\n    print(result)",
+        "detail": "BT_AI_24_10_2022",
+        "documentation": {}
+    }
+]

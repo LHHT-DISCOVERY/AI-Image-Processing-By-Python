@@ -36,7 +36,7 @@ for j=1: nfiles
     Hu_moment(j,:) = [S1 S2 S3 S4 S5 S6 S7];
 
 end
-y = ['dau';'dau';'dau';'dau';'dau';'dau';'dau';'dau';'dau';'dau';'cam';'cam';'cam';'cam';'cam';'cam';'cam';'cam';'cam';'cam'];
+y = ['ros';'ros';'ros';'ros';'ros';'ros';'ros';'ros';'ros';'ros';'sun';'sun';'sun';'sun';'sun';'sun';'sun';'sun';'sun';'sun'];
 
 ds = mat2dataset(Hu_moment);
 ds(1:20,:);
@@ -56,8 +56,8 @@ C = [1,1, 2,2;
      1,1, 2,2;
      1,1, 2,2];
 K = 3;
-dau = 0;
-cam = 0;
+ros = 0;
+sun = 0;
 for i = 1:5
     DS2 = DS;
     DS2([A(i,1),A(i,2),A(i,3),A(i,4)] , :)=[]; 
@@ -68,17 +68,17 @@ for i = 1:5
     % Model KNN:
         %Mdl = fitcknn(Hu_moment_train,y_train,'NumNeighbors',3,'Standardize',1);
     %test :
-        %         if (string(predict(Mdl,Hu_moment(A(i,j),:))) == "cam")
+        %         if (string(predict(Mdl,Hu_moment(A(i,j),:))) == 'sun')
         %             B(i,j) = 2;
-        %         elseif (string(predict(Mdl,Hu_moment(A(i,j),:))) == "dau")
+        %         elseif (string(predict(Mdl,Hu_moment(A(i,j),:))) == 'ros')
         %             B(i,j) = 1;
         %         end
       for j = 1 : 4
             for k = 1 : 16
                 d(j,k) = norm(Hu_moment(A(i,j),:)-table2array(Hu_moment_train(k,:)));
-                if (table2array(y_train(k,:)) == 'dau' )
+                if (table2array(y_train(k,:)) == 'ros' )
                     e(j,k) = 1;
-                elseif (table2array(y_train(k,:)) == 'cam' )
+                elseif (table2array(y_train(k,:)) == 'sun' )
                     e(j,k) = 2;
                 end
             
@@ -86,8 +86,8 @@ for i = 1:5
         
       end
             d1 = sort(d,2);
-            for I= 1 : size(d1,1)
-                for J =1 : size(d1,2)
+            for I = 1 : size(d1,1)
+                for J = 1 : size(d1,2)
                         d2(I,J) = e(d1(I,J)==d);
                 end
             end
@@ -95,18 +95,18 @@ for i = 1:5
             for i1 = 1 : size(d2,1)
                 for j1 = 1 : K
                     if (d2(i1,j1) == 1)
-                        dau = dau + 1;
+                        ros = ros + 1;
                     elseif (d2(i1,j1) == 2)
-                        cam = cam + 1;
+                        sun = sun + 1;
                     end
                 end
-                if (dau >= cam) 
+                if (ros >= sun) 
                     KQ(i,i1) = 1;
-                elseif (cam > dau)
+                elseif (sun > ros)
                     KQ(i,i1) = 2;
                 end
-                dau = 0;
-                cam = 0;
+                ros = 0;
+                sun = 0;
             end
 end
 % Confusion Matrix :
@@ -121,3 +121,23 @@ F = confusionchart(D)
 % ACC :
 acc = sum(kq == c, 'all') / 20
 %--------------------------------------------------------------------
+function m = Central_moments(img,p,q)
+m = 0;
+img2 = im2bw(img);
+S = sum(img2(:));
+sizea= size(img2) ;
+for i = 1:sizea(1)
+    sumy(i) = sum(i*sum(img2(i,:)));
+end
+sumY = sum(sumy)/S;
+for i = 1:sizea(2)
+    sumx(i) = sum(i*sum(img2(:,i)));
+end
+sumX = sum(sumx)/S;
+    for i = 1:sizea(1)
+        for j = 1:sizea(2)
+            m = ((j-sumX)^p * (i-sumY)^q * img2(i,j)) + m;
+        end
+    end
+end
+% ham tinh moment trung tam chuan hoa :
