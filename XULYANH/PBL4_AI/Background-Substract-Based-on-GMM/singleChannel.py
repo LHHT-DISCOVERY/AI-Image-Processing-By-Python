@@ -162,7 +162,7 @@ def background_subtract(gmm_model, single_frame):
         weight_sum = 0
         for k in range(gmm_model.model_count[0, pixel_index]):
             weight_sum = weight_sum + gmm_model.w[k, pixel_index]
-            # Nếu mô hình K đầu tiên đã đáp ứng ngưỡng trọng lượng, chỉ có mô hình K trước đó được chọn
+            # Nếu mô hình K đầu tiên đã đáp ứng ngưỡng trọng số, chỉ có mô hình K trước đó được chọn
             if weight_sum > gmm_model.t:
                 gmm_model.model_count[0, pixel_index] = k + 1
                 break

@@ -53,23 +53,19 @@ class Object:
 
     def going_UP(self, mid_start, mid_end):
         if len(self.tracks) >= 2:
-            if self.state == '0':
-                if self.tracks[-1][1] < mid_end and self.tracks[-2][1] >= mid_end:  # cruzo la linea
-                    state = '1'
-                    self.dir = 'up'
-                    return True
+            if self.tracks[-1][1] < mid_end and self.tracks[-2][1] >= mid_end:  # cruzo la linea
+                self.dir = 'up'
+                return True
             else:
                 return False
         else:
             return False
 
-    def going_DOWN(self, mid_start, mid_end):
+    def going_DOWN(self, mid_start):
         if len(self.tracks) >= 2:
-            if self.state == '0':
-                if self.tracks[-1][1] > mid_start and self.tracks[-2][1] <= mid_start:  # nếu vượt qua ranh giới
-                    state = '1'
-                    self.dir = 'down'
-                    return True
+            if self.tracks[-1][1] > mid_start and self.tracks[-2][1] <= mid_start:  # nếu vượt qua ranh giới
+                self.dir = 'down'
+                return True
             else:
                 return False
         else:

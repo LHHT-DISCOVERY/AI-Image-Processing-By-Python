@@ -2,6 +2,7 @@ import time
 
 import cv2
 import numpy as np
+import pygame
 from pygame import mixer
 
 
@@ -13,7 +14,7 @@ def phat_hien_trom():
     top_left, bottom_right = (200, 100), (700, 680)
 
     cap = cv2.VideoCapture('9014172086922407300.mp4')
-    kernelOp = np.ones((6, 6), np.uint8)
+    kernelOp = np.ones((3, 3), np.uint8)
     kernelOp2 = np.ones((5, 5), np.uint8)
     kernel_cl = np.ones((22, 22), np.uint8)
 
@@ -30,7 +31,7 @@ def phat_hien_trom():
         contours, ret = cv2.findContours(fgMask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         # khu vực cấm
-        # cv2.rectangle(frame, top_left, bottom_right, (255, 255, 0), 2)
+        cv2.rectangle(frame, top_left, bottom_right, (255, 255, 0), 2)
         object = []
         for i in range(len(contours)):
             # x là điểm cuối cùng bên trái
@@ -57,6 +58,9 @@ def phat_hien_trom():
                     b = time.strftime("%c")
                     f.write("DOI_TUONG_VAO_NHA_LUC : " + b + "\n")
                     print(object)
+            else:
+                pygame.mixer.stop()
+                break
 
         cv2.imshow('Camera', frame)
         cv2.imshow('Masked Video', fgMask)

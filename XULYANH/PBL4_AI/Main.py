@@ -11,13 +11,11 @@ if __name__ == '__main__':
             print("|--------------------------------------------- |")
             case = int(input(" Nhập vào lựa chọn của bạn : "))
             if case == 1:
-                Detect_Tracking("2466089733293369890.mp4")
+                # 2466089733293369890
+                Detect_Tracking("data_video_test/test15.mp4")
                 break
             elif case == 2:
                 phat_hien_trom()
-                break
-            elif case == 0:
-                print("end")
                 break
             else:
                 print("Nhập không đúng lựa chọn")

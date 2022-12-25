@@ -1,4 +1,3 @@
-import datetime
 import time
 
 import cv2
@@ -21,24 +20,24 @@ def Detect_Tracking(vd):
     h = cap.get(4)
 
     # Entry / exit lines
-    line_up = int((h / 2))
+    # line_up = int((h / 2))
     line_down = int((h / 2))
 
-    pt3 = [0, line_up]
-    pt4 = [w, line_up]
-    pts_L2 = np.array([pt3, pt4], np.int32)
-    pts_L2 = pts_L2.reshape((-1, 1, 2))
+    # pt3 = [0, line_up]
+    # pt4 = [w, line_up]
+    # pts_L2 = np.array([pt3, pt4], np.int32)
+    # pts_L2 = pts_L2.reshape((-1, 1, 2))
 
-    pt1 = [0, 430]
-    pt2 = [w, 430]
+    pt1 = [0, line_down]
+    pt2 = [w, line_down]
     pts_L1 = np.array([pt1, pt2], np.int32)
     pts_L1 = pts_L1.reshape((-1, 1, 2))
 
     up_limit = int(1 * (h / 5))
     down_limit = int(4 * (h / 5))
 
-    line_down_color = (255, 0, 0)
-    line_up_color = (0, 0, 255)
+    line_down_color = (255, 0, 255)
+    # line_up_color = (0, 0, 255)
 
     # background subtraction
     fgbg = cv2.createBackgroundSubtractorMOG2(200, 16, True)
@@ -51,12 +50,11 @@ def Detect_Tracking(vd):
     # Variables
     font = cv2.FONT_HERSHEY_SIMPLEX
     object = []
-    max_p_age = 5
     pid = 1
 
     # lấy fps
     prev_frame_time = 0
-    new_frame_time = 0
+    # new_frame_time = 0
 
     while cap.isOpened():
         # đọc hình ảnh từ video
@@ -66,11 +64,12 @@ def Detect_Tracking(vd):
         prev_frame_time = new_frame_time
         FPS = fps
         # FPS = cv2.VideoCapture.get(5)
-        top_left, bottom_right = (0, 100), (460, 0)
+        # top_left, bottom_right = (0, 100), (460, 0)
         for i in object:
             i.age_one()
 
         # áp dụng background subtraction
+
         fgmask2 = fgbg.apply(frame)
         try:
             ret, imBin2 = cv2.threshold(fgmask2, 254, 255, cv2.THRESH_BINARY)
@@ -98,14 +97,14 @@ def Detect_Tracking(vd):
                             #  đối tượng gần với đối tượng đã được phát hiện trước đó
                             new = False
                             i.updateCoords(cx, cy)  # cập nhật tọa độ trong đối tượng
-                            if i.going_UP(line_down, line_up):
-                                cnt_up += 1
-                                a = str(cnt_up)
-                                b = time.strftime("%c")
-                                with open("Data.txt", 'a') as f:
-                                    f.write("ID : " + a + "--UP-->" + str(b) + "\n")
+                            # if i.going_UP(line_down, line_up):
+                            #     cnt_up += 1
+                            #     a = str(cnt_up)
+                            #     b = time.strftime("%c")
+                            #     with open("Data.txt", 'a') as f:
+                            #         f.write("ID : " + a + "--UP-->" + str(b) + "\n")
 
-                            if i.going_DOWN(line_down, line_up):
+                            if i.going_DOWN(line_down):
                                 cnt_down += 1
                                 a = str(cnt_down)
                                 b = time.strftime("%c")
@@ -155,9 +154,9 @@ def Detect_Tracking(vd):
 
         #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuố   ng
         # frame = cv2.polylines(frame, [pts_L1], False, up_limit, thickness=3)
-        # frame = cv2.polylines(frame, [pts_L2], False, down_limit, thickness=3)
+        frame = cv2.polylines(frame, [pts_L1], False, down_limit, thickness=3)
 
-        # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
+        frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
         cv2.putText(frame, FPS, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)

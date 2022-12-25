@@ -112,7 +112,7 @@
         "kind": 2,
         "importPath": "singleChannel",
         "description": "singleChannel",
-        "peekOfCode": "def background_subtract(gmm_model, single_frame):\n    # ước tính mô hình nền sum(weight_i)>T\n    img_rows = single_frame.shape[0]\n    img_cols = single_frame.shape[1]\n    for pixel_index in range(img_rows * img_cols):\n        weight_sum = 0\n        for k in range(gmm_model.model_count[0, pixel_index]):\n            weight_sum = weight_sum + gmm_model.w[k, pixel_index]\n            # Nếu mô hình K đầu tiên đã đáp ứng ngưỡng trọng lượng, chỉ có mô hình K trước đó được chọn\n            if weight_sum > gmm_model.t:",
+        "peekOfCode": "def background_subtract(gmm_model, single_frame):\n    # ước tính mô hình nền sum(weight_i)>T\n    img_rows = single_frame.shape[0]\n    img_cols = single_frame.shape[1]\n    for pixel_index in range(img_rows * img_cols):\n        weight_sum = 0\n        for k in range(gmm_model.model_count[0, pixel_index]):\n            weight_sum = weight_sum + gmm_model.w[k, pixel_index]\n            # Nếu mô hình K đầu tiên đã đáp ứng ngưỡng trọng số, chỉ có mô hình K trước đó được chọn\n            if weight_sum > gmm_model.t:",
         "detail": "singleChannel",
         "documentation": {}
     },
