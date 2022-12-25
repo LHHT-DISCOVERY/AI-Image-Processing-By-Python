@@ -22,7 +22,7 @@
 			1. Tên đề tài đồ án:
 		 	Phát hiện chuyển động trong video bằng thuật toán GMM ứng dụng :
 			 + Bài toán 1 : Theo vết đối tượng xe cộ trên đường , và đếm số lượng xe tham gia giao thông
-		 	 + Bài toán 2 : Phát hiện trộm vào nhà và reo chuoogn cảnh báo
+		 	 + Bài toán 2 : Phát hiện trộm vào nhà và reo chuông cảnh báo
 
 			2. Nội dung các phần thuyết minh và tính toán (nhom5_bao_cao.docx):
 			 Lời mở đầu
