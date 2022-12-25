@@ -12,7 +12,7 @@ if __name__ == '__main__':
             case = int(input(" Nhập vào lựa chọn của bạn : "))
             if case == 1:
                 # 2466089733293369890
-                Detect_Tracking("data_video_test/test15.mp4")
+                Detect_Tracking("2466089733293369890.mp4")
                 break
             elif case == 2:
                 phat_hien_trom()

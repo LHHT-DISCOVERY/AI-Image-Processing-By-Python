@@ -159,8 +159,8 @@ def Detect_Tracking(vd):
         frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)
 
-        cv2.putText(frame, FPS, (20, 20), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-        cv2.putText(frame, str_down, (20, 40), font, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+        cv2.putText(frame, FPS, (20, 20), font, 0.5, (255, 0, 0), 1, cv2.LINE_AA)
+        cv2.putText(frame, str_down, (20, 40), font, 0.5, (0, 0, 255), 2, cv2.LINE_AA)
 
         # cv2.putText(frame, datetime.datetime.now().strftime("%A %d %B %Y %I:%M:%S%p"),
         #             (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 255, 255), 1)
