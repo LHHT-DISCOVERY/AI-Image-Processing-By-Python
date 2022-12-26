@@ -53,6 +53,7 @@ class Object:
 
     def going_UP(self, mid_start, mid_end):
         if len(self.tracks) >= 2:
+            # Lấy tọa độ Y owr vị trí cuối cùng ,
             if self.tracks[-1][1] < mid_end and self.tracks[-2][1] >= mid_end:  # cruzo la linea
                 self.dir = 'up'
                 return True
@@ -63,6 +64,8 @@ class Object:
 
     def going_DOWN(self, mid_start):
         if len(self.tracks) >= 2:
+            # lấy tọa độ y  [-1][1]  là vị trí cuối cùng vượt qua
+            # lấy tọa độ y  [-1][1] là vị trí trước khi vượt qua
             if self.tracks[-1][1] > mid_start and self.tracks[-2][1] <= mid_start:  # nếu vượt qua ranh giới
                 self.dir = 'down'
                 return True
