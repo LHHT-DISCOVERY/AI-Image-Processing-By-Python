@@ -21,7 +21,7 @@ def Detect_Tracking(vd):
 
     # Entry / exit lines
     # line_up = int((h / 2))
-    line_down = int((h / 2))
+    line_down = int(3*(h/5))
 
     # pt3 = [0, line_up]
     # pt4 = [w, line_up]
@@ -31,7 +31,7 @@ def Detect_Tracking(vd):
     pt1 = [0, line_down]
     pt2 = [w, line_down]
     pts_L1 = np.array([pt1, pt2], np.int32)
-    pts_L1 = pts_L1.reshape((-1, 1, 2))
+    # pts_L1 = pts_L1.reshape((-1, 1, 2))
 
     up_limit = int(1 * (h / 5))
     down_limit = int(4 * (h / 5))
@@ -154,7 +154,7 @@ def Detect_Tracking(vd):
 
         #  ranh giới để phân biệt đối tượng đi đang đi lên hay đi xuố   ng
         # frame = cv2.polylines(frame, [pts_L1], False, up_limit, thickness=3)
-        frame = cv2.polylines(frame, [pts_L1], False, down_limit, thickness=3)
+        # frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
 
         frame = cv2.polylines(frame, [pts_L1], False, line_down_color, thickness=3)
         # frame = cv2.polylines(frame, [pts_L2], False, line_up_color, thickness=3)

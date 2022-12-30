@@ -49,7 +49,7 @@ def phat_hien_trom():
             if trong_vong_canh_bao:
                 img = cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 5)
                 mixer.music.play()
-                object.append([(x, y), (x + w, y + h)])
+                # object.append([(x, y), (x + w, y + h)])
                 cv2.putText(frame, "WARNING !!!", (200, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4)
                 cv2.putText(img, "TROM DI CHUYEN", (x, y - 20), cv2.FONT_HERSHEY_COMPLEX, .5,
                             (0, 255, 0),
@@ -57,7 +57,7 @@ def phat_hien_trom():
                 with open("Data_trom.txt", 'a') as f:
                     b = time.strftime("%c")
                     f.write("DOI_TUONG_VAO_NHA_LUC : " + b + "\n")
-                    print(object)
+                    # print(object)
             else:
                 pygame.mixer.stop()
                 break
